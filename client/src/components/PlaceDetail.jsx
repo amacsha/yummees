@@ -15,13 +15,13 @@ function PlaceDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    mapboxgl.accessToken = MAPBOX_KEY; // COME BACK TO THIS
+    mapboxgl.accessToken = MAPBOX_KEY;
 
     // Create a new map
     const map = new mapboxgl.Map({
       container: "map",
       style: MAP,
-      center: [-0.1276, 51.5072], // make dynamic
+      center: [-0.1276, 51.5072],
       zoom: 10,
     });
 
@@ -40,7 +40,7 @@ function PlaceDetail() {
 
     // Fetch data for place based on id
     axios
-      .get(BASEURL + "/" + id) // COME BACK TO THIS
+      .get(BASEURL + "/" + id)
       .then((response) => {
         setPlace(response.data);
         addMarker(response.data);

@@ -38,13 +38,13 @@ function AddPlaceButton({ onPlaceAdded }) {
   };
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: GOOGLEMAPSKEY, // COME BACK TO THIS
+    googleMapsApiKey: GOOGLEMAPSKEY,
     libraries,
   });
 
   const [autocomplete, setAutocomplete] = useState(null);
 
-  // get lat and lng from the place selected with autocomplete - currently overwrites the location field with co-ords
+  // get lat and lng from the place selected with autocomplete
   const handlePlaceSelect = (setFieldValue) => () => {
     console.log(autocomplete);
     console.log("hello");
@@ -64,22 +64,18 @@ function AddPlaceButton({ onPlaceAdded }) {
     formData.append("upload_preset", "default");
     // send the image to Cloudinary
     axios
-      .post(
-        CLOUDINARY, // SECURE THIS
-        formData
-      )
+      .post(CLOUDINARY, formData)
       // then send response url to the backend
       .then((response) => {
         const imageUrl = response.data.secure_url;
         const dataToSend = { ...values, image: imageUrl };
-        return axios.post(BASEURL, dataToSend); // SECURE THIS
+        return axios.post(BASEURL, dataToSend);
       })
       .then((response) => {
         setSubmitting(false);
         resetForm();
         setShowForm(false);
         onPlaceAdded();
-        console.log("Work??");
       })
       .catch((error) => {
         console.error("Error:", error);
