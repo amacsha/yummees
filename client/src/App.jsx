@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import NavB from "./components/NavB";
 import MoodBar from "./components/MoodBar";
 import Register from "./components/Register";
@@ -101,6 +106,7 @@ function App() {
 
         <Route path="/register" element={<Register />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/*" element={<Navigate replace to="/" />} />
       </Routes>
     </Router>
   );

@@ -2,13 +2,6 @@ const mongoose = require("./index");
 
 const Schema = mongoose.Schema;
 
-// const cuisinesSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//   },
-// });
-
 const placesSchema = new Schema({
   name: {
     type: String,
@@ -20,8 +13,6 @@ const placesSchema = new Schema({
   },
   mood: {
     type: String,
-    // type: Schema.Types.ObjectId,
-    // ref: "Cuisine",
   },
   review: {
     type: String,
@@ -30,12 +21,6 @@ const placesSchema = new Schema({
   image: {
     type: String,
   },
-  // rating: {
-  //   type: Number,
-  //   min: 0,
-  //   max: 5,
-  //   required: true,
-  // },
   likes: {
     type: Number,
     default: 0,
