@@ -82,7 +82,7 @@ function AddPlaceButton({ onPlaceAdded }) {
         setSubmitting(false);
       });
   };
-
+// 
   const formStyle = {
     display: showForm ? "block" : "none",
   };

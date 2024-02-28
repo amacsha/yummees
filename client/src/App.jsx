@@ -102,10 +102,33 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/PlaceDetail/:id" element={<PlaceDetail />} />
+        <Route
+          path="/PlaceDetail/:id"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <PlaceDetail />
+            </ProtectedRoute>
+          }
+        />
+
+<Route
+          path="/PlaceDetail/explore"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <PlaceDetail />
+            </ProtectedRoute>
+          }
+        />
 
         <Route path="/register" element={<Register />} />
-        <Route path="/explore" element={<Explore />} />
+        <Route
+          path="/explore"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Explore />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/*" element={<Navigate replace to="/" />} />
       </Routes>
     </Router>
